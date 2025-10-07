@@ -1,23 +1,40 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
+import ContactView from './views/ContactView.vue';
+
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
 
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
+  <div class="wrapper">
+        <header class="header">
 
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-      </nav>
+            <img src="/img/logo.svg" alt="logo" >
+
+            <ul class="spisski">
+                <li class="spisski-li">О нас</li>
+                <li class="spisski-li">Услуги</li>
+                <li class="spisski-li">Как купить</li>
+                <li class="spisski-li">Преимущества</li>
+                <li class="spisski-li">Отзывы</li>
+                <li class="spisski-li">Контакты</li>
+            </ul>
+
+            <div class="namber-social-icon">
+                <div class="social-icon">
+                    <img class="social-icon-img" src="/icons/telegram.svg" alt="telegram">
+                    <img class="social-icon-img" src="/icons/WatsApp.svg" alt="WatsApp">
+                    <img class="social-icon-img" src="/icons/YouTube.svg" alt="YouTube">
+                </div>
+                <div class="namber ">
+                    <p>+7 (8352) 67-52-52</p>
+                    <p style="margin-top: 4px;">+7 (927) 997-12-42</p>
+                </div>            
+            </div>
+            
+        </header>
     </div>
-  </header>
 
-  <RouterView />
 </template>
 
 <style scoped>
