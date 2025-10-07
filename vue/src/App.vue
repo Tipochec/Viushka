@@ -1,6 +1,8 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
 import ContactView from './views/ContactView.vue';
+import AboutView from './views/AboutView.vue';
+
 
 </script>
 
@@ -9,26 +11,22 @@ import ContactView from './views/ContactView.vue';
   <div class="wrapper">
         <header class="header">
 
-            <img src="/img/logo.svg" alt="logo" >
+            <img :src="LogoIcon" alt="logo" >
 
             <ul class="spisski">
-                <li class="spisski-li">О нас</li>
-                <li class="spisski-li">Услуги</li>
-                <li class="spisski-li">Как купить</li>
-                <li class="spisski-li">Преимущества</li>
-                <li class="spisski-li">Отзывы</li>
+                <AboutView to="/">О нас</AboutView>
                 <li class="spisski-li">Контакты</li>
             </ul>
 
             <div class="namber-social-icon">
                 <div class="social-icon">
-                    <img class="social-icon-img" src="/icons/telegram.svg" alt="telegram">
-                    <img class="social-icon-img" src="/icons/WatsApp.svg" alt="WatsApp">
-                    <img class="social-icon-img" src="/icons/YouTube.svg" alt="YouTube">
+                    <img class="social-icon-img" :src="telegrameIcon" alt="telegram">
+                    <img class="social-icon-img" :src="watsappIcon" alt="WhatsApp">
+                    <img class="social-icon-img" :src="YouTubeIcon" alt="YouTube">
                 </div>
                 <div class="namber ">
-                    <p>+7 (8352) 67-52-52</p>
-                    <p style="margin-top: 4px;">+7 (927) 997-12-42</p>
+                    <p style="color: rgb(236, 236, 236);">+7 (8352) 67-52-52</p>
+                    <p style="color: rgb(236, 236, 236); margin-top: 4px;">+7 (927) 997-12-42</p>
                 </div>            
             </div>
             
@@ -37,66 +35,117 @@ import ContactView from './views/ContactView.vue';
 
 </template>
 
+<script>
+import WatsAppIcon from '@/components/icons/WatsApp.svg'
+import YouTubeIcon from '@/components/icons/YouTube.svg'
+import telegrameIcon from '@/components/icons/telegram.svg'
+import LogoIcon from '@/components/icons/logo.svg'
+import AboutView from './views/AboutView.vue';
+
+export default {
+  name: 'AboutView',
+  data() {
+    return {
+      LogoIcon: LogoIcon,
+      watsappIcon: WatsAppIcon,
+      YouTubeIcon: YouTubeIcon,
+      telegrameIcon: telegrameIcon
+    }
+  }
+}
+</script>
+
 <style scoped>
-header {
-  line-height: 1.5;
-  max-height: 100vh;
+
+
+
+body {
+    overflow-x: hidden;
+    font-family:"Inter", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+
 }
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
+ul, li, ol {
+    list-style: none;
 }
 
-nav {
-  width: 100%;
-  font-size: 12px;
-  text-align: center;
-  margin-top: 2rem;
+a {
+    text-decoration: none;
 }
 
-nav a.router-link-exact-active {
-  color: var(--color-text);
+h1 {
+    font-size: 52px; 
+    font-weight: 600;
 }
 
-nav a.router-link-exact-active:hover {
-  background-color: transparent;
-}
-
-nav a {
-  display: inline-block;
-  padding: 0 1rem;
-  border-left: 1px solid var(--color-border);
-}
-
-nav a:first-of-type {
-  border: 0;
-}
-
-@media (min-width: 1024px) {
-  header {
+.header {
     display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-
-  nav {
-    text-align: left;
-    margin-left: -1rem;
-    font-size: 1rem;
-
-    padding: 1rem 0;
-    margin-top: 1rem;
-  }
+    justify-content: space-between;
+    padding: 30px 40px;
+    box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);;
+    align-items: center;
+    align-self: center;
+    margin: 250px 250px 0 250px;
+    background-color: rgb(47, 138, 112, 0.3);
+    border-radius: 10px;
 }
+
+.wrapper {
+    width: 1400px;
+    margin: 0 auto;
+}
+
+.spisski {
+    display: flex;
+    justify-content: center;
+
+}
+
+.spisski-li {
+    margin: 0 20px;
+    font-size: 30px;
+    color: rgb(236, 236, 236);
+}
+
+.namber-social-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.namber-social-icon-margin {
+    margin: 0 9px;
+}
+
+.social-icon {
+    margin: 0 5px;
+}
+
+.social-icon-img {
+    margin: 0 3px;
+}
+
+.social-icon {
+    margin-right: 27px ;
+}
+
+
+/* /////////////////////////////////////////////////// */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </style>
