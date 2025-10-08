@@ -1,12 +1,15 @@
 <template>
-    <div class="wrapper">
+
         <header class="header">
 
-            <img :src="LogoIcon" alt="logo" >
+            <a href="/">
+                <img :src="LogoIcon" alt="logo" >
+            </a>
+                
 
             <ul class="spisski">
-                <AboutView to="">О нас</AboutView>
-                <li class="spisski-li">Контакты</li>
+                <li class="spisski-li"><a href="/about"> О нас</a></li>
+                <li class="spisski-li"><a href="/contact"> Контакты</a></li>
             </ul>
 
             <div class="namber-social-icon">
@@ -22,20 +25,27 @@
             </div>
             
         </header>
-    </div>
+
 </template>
 
 <script setup>
+
+import telegrameIcon from './icons/telegram.svg';
+import watsappIcon from './icons/WatsApp.svg';
+import YouTubeIcon from './icons/YouTube.svg';
+import LogoIcon from './icons/logo.svg';
+
 
 </script>
 
 <style>
 
-    body {
+body {
     overflow-x: hidden;
     font-family:"Inter", sans-serif;
     font-weight: 400;
     font-size: 16px;
+    background: linear-gradient(90deg,rgba(42, 123, 155, 1) 7%, rgba(69, 125, 102, 1) 57%);
 
 }
 
@@ -60,7 +70,7 @@ h1 {
     align-items: center;
     align-self: center;
     margin: 250px 250px 0 250px;
-    background-color: rgb(47, 138, 112, 0.3);
+    background-color: rgba(0, 0, 0, 0.671);
     border-radius: 10px;
 }
 

@@ -1,9 +1,9 @@
 <script setup>
-import HeaderComponents from '@/components/HeaderComponents.vue';
+import MainLoyout from '@/layouts/MainLoyout.vue';
 </script>
 
 <template>
   <main>
-    <HeaderComponents />
+    <MainLoyout />
   </main>
 </template>
