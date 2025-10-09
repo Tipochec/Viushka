@@ -1,15 +1,14 @@
 <template>
+    <div class="wrapper-header">
 
-        <header class="header">
-
+        <header class="header" >
             <a href="/">
                 <img :src="LogoIcon" alt="logo" >
-            </a>
-                
+            </a>       
 
             <ul class="spisski">
-                <li class="spisski-li"><a href="/about"> О нас</a></li>
-                <li class="spisski-li"><a href="/contact"> Контакты</a></li>
+                <li class="spisski-li"><a href="about"> О нас</a></li>
+                <li class="spisski-li"><a href="contact"> Контакты</a></li>
             </ul>
 
             <div class="namber-social-icon">
@@ -18,14 +17,17 @@
                     <img class="social-icon-img" :src="watsappIcon" alt="WhatsApp">
                     <img class="social-icon-img" :src="YouTubeIcon" alt="YouTube">
                 </div>
-                <div class="namber ">
+                <div v-if="hidePhone" class="number">
                     <p style="color: rgb(236, 236, 236);">+7 (8352) 67-52-52</p>
                     <p style="color: rgb(236, 236, 236); margin-top: 4px;">+7 (927) 997-12-42</p>
-                </div>            
+                </div>
             </div>
-            
         </header>
 
+            <div v-if="hideInfoAbout" class="text-about-us">
+                <p>Наша компания — это команда энтузиастов, стремящихся изменить мир к лучшему. Мы создаем инновационные продукты, ориентируясь на потребности каждого клиента. Наша цель — предлагать надежные и качественные решения, обеспечивая высочайший уровень сервиса. Доверие наших партнеров — наш главный актив. Мы смотрим в будущее с уверенностью и вдохновением</p>
+            </div>
+    </div>
 </template>
 
 <script setup>
@@ -35,10 +37,24 @@ import watsappIcon from './icons/WatsApp.svg';
 import YouTubeIcon from './icons/YouTube.svg';
 import LogoIcon from './icons/logo.svg';
 
+import { computed } from 'vue';
+import { useRoute } from 'vue-router';
+
+const route = useRoute()
+const hidePhone = computed(() => route.meta.hidePhone || false);
+const hideInfoAbout = computed(() => route.meta.hideInfoAbout || false);
+
+
 
 </script>
 
 <style>
+
+.text-about-us {
+    color: white;
+    font-size: 20px;
+    margin-top: 30px;
+}
 
 body {
     overflow-x: hidden;
@@ -62,16 +78,21 @@ h1 {
     font-weight: 600;
 }
 
+.wrapper-header {
+    margin: 250px 250px 0 250px;
+    background-color: rgba(0, 0, 0, 0.671);
+    border-radius: 10px;    
+    padding: 30px 40px;
+    box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);;
+}
+
 .header {
     display: flex;
     justify-content: space-between;
-    padding: 30px 40px;
-    box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);;
+
     align-items: center;
     align-self: center;
-    margin: 250px 250px 0 250px;
-    background-color: rgba(0, 0, 0, 0.671);
-    border-radius: 10px;
+
 }
 
 .wrapper {
