@@ -9,7 +9,7 @@ app.use(cors());
 app.use(express.json());
 
 // Укажите путь к вашей БД из DBeaver
-const dbPath = 'C:\Users\Taram\Desktop\mybaze.db';
+const dbPath = 'C:\\Users\\Тарам\\Desktop\\Data_Baza\\test.db';
 
 const db = new sqlite3.Database(dbPath, (err) => {
     if (err) {

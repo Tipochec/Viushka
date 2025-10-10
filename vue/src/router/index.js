@@ -10,7 +10,7 @@ const router = createRouter({
       component: () => import("../layouts/MainLoyout.vue"),
       children: [
             {
-                path: 'main',
+                path: '',
                 name: RouterNames.main,
                 component: () => import('../views/HomeView.vue')
             },
@@ -18,21 +18,11 @@ const router = createRouter({
                 path: 'about',
                 name: RouterNames.about,
                 component: () => import('../views/AboutView.vue'),
-                meta: {
-                  Info: 'Информация о нас',
-                  hideInfoAbout: true,
-                  
-                }
             },
             {
                 path: 'contact',
                 name: RouterNames.contact,
                 component : () => import('../views/ContactView.vue'),
-                meta: {
-                    headerTitle: 'Контакты',
-                    hidePhone: true,
-                    customClass: 'contact-header'
-                  }
             }
       ]
     },
