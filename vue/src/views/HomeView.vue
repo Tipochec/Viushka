@@ -1,4 +1,5 @@
 <template>
+    <router-view />
   <div class="data-baze">
     <h2>Данные из базы</h2>
     
@@ -9,8 +10,8 @@
       <!-- Сотрудники -->
       <div v-if="staff.length">
         <h3>Сотрудники:</h3>
-        <div v-for="person in staff" :key="person.id">
-          {{ person.name }} - {{ person.place_of_work }}
+        <div v-for="persons in staff" :key="persons.id">
+          {{ persons.name }} - {{ persons.place_of_work }}
         </div>
       </div>
 
@@ -21,17 +22,23 @@
           {{ product.name }} - {{ product.product_type }}
         </div>
       </div>
-    
-      <div v-if="products.length">
+
+
+
+
+        <div v-if="supplier.length">
         <h3>Продукты:</h3>
-        <div v-for="product in products" :key="product.id">
+        <div v-for="product in supplier" :key="product.id">
           {{ product.name }} - {{ product.product_type }}
         </div>
       </div>
+
+
+      
     </div>
   </div>
 
-  
+
 </template>
 
 <script>
@@ -44,6 +51,10 @@ export default {
       staff: [],
       products: [],
       orders: [],
+      all_products: [],
+      customers: [],
+      supplier: [],
+      shops: [],
       loading: false
     }
   },

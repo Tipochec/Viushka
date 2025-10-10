@@ -56,6 +56,45 @@ app.get('/api/orders', (req, res) => {
     });
 });
 
+app.get('/api/all_products', (req, res) => {
+    const query = `
+        SELECT * FROM all_products
+    `;
+    db.all(query, (err, rows) => {
+        if (err) {
+            res.status(500).json({ error: err.message });
+            return;
+        }
+        res.json(rows);
+    });
+});
+
+app.get('/api/customers', (req, res) => {
+    const query = `
+        SELECT * FROM customers
+    `;
+    db.all(query, (err, rows) => {
+        if (err) {
+            res.status(500).json({ error: err.message });
+            return;
+        }
+        res.json(rows);
+    });
+});
+
+app.get('/api/supplier', (req, res) => {
+    const query = `
+        SELECT * FROM supplier
+    `;
+    db.all(query, (err, rows) => {
+        if (err) {
+            res.status(500).json({ error: err.message });
+            return;
+        }
+        res.json(rows);
+    });
+});
+
 app.get('/api/shops', (req, res) => {
     db.all('SELECT * FROM shops', (err, rows) => {
         if (err) {
